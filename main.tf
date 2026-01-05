@@ -11,9 +11,8 @@ resource "aws_instance" "Instance" {
 		Owner = local.UserEmailTag
 		Project = local.UserProjectTag
 	}
-	network_interface {
+	primary_network_interface {
 		network_interface_id = aws_network_interface.Eth0.id
-		device_index = "0"
 	}
 	root_block_device {
 		delete_on_termination = local.InstanceEbsDeleteOnTermination
